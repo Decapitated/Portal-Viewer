@@ -1,0 +1,16 @@
+{
+  "name": "portal-viewer",
+  "version": "1.0.0",
+  "description": "View android device screen",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Brett Johnson (Decapitated)",
+  "devDependencies": {
+    "electron": "^5.0.1"
+  },
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}

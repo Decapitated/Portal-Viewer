@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Desktop Portal</title>
+    </head>
+    <body>
+        <button id="start" hidden>Start</button>
+        <button id="stop" hidden>Stop</button>
+        <script src="socket.io.js"></script>
+        <script>
+            var socket = io('http://localhost:5555');
+
+            const start = document.getElementById("start");
+            const stop = document.getElementById("stop");
+            start.onclick = function(){
+                socket.emit("start");
+                start.style.display = "none";
+                stop.style.display = "block";
+                stop.onclick = function(){
+                    socket.emit("stop");
+                    stop.style.display = "none";
+                    start.style.display = "block";
+                }
+            };
+
+            socket.on('started', function(){
+                start.style.display = "block";
+            });
+        </script>
+    </body>
+</html>
